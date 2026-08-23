@@ -1,0 +1,895 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(135deg, #ffe6ee, #fff5f8);
+
+    padding: 50px 20px;
+}
+
+.main-content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 80px;
+}
+
+.counter-container {
+    width: 800px;
+    max-width: 100%;
+
+    padding: 50px 30px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(180, 70, 100, 0.15);
+
+    backdrop-filter: blur(10px);
+}
+
+.counter-container h1 {
+    color: rgb(129, 75, 75);
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+.since {
+    color: #888;
+
+    font-size: 16px;
+
+    margin-bottom: 35px;
+}
+
+.counter {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.time-box {
+    width: 70px;
+    min-height: 100px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 18px 10px;
+
+    box-shadow: 0 8px 20px rgba(180, 70, 100, 0.1);
+}
+
+.time-box span {
+    display: block;
+
+    color: #d94b72;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.time-box p {
+    color: #888;
+
+    font-size: 14px;
+}
+
+.love-message {
+    color: #8e5263;
+
+    font-size: 18px;
+
+    margin-top: 35px;
+}
+
+
+.memories-page {
+    width: 100%;
+
+    text-align: center;
+}
+
+.memories-page h1 {
+    color: rgb(126, 82, 82);
+
+    font-size: 35px;
+
+    margin-bottom: 8px;
+}
+
+.hint {
+    color: #999;
+
+    font-size: 14px;
+
+    margin-bottom: 30px;
+}
+
+.card-container {
+    width: 330px;
+    height: 430px;
+
+    margin: auto;
+
+    position: relative;
+
+    perspective: 1000px;
+}
+
+.memory-card {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    cursor: pointer;
+}
+
+.memory-card.active {
+    display: block;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transition: transform 0.7s ease;
+}
+
+
+/* Flip */
+
+.memory-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    backface-visibility: hidden;
+
+    box-shadow: 0 15px 35px rgba(180, 70, 100, 0.2);
+}
+
+.card-front {
+    background: white;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.card-back {
+    background: rgb(212, 196, 196);
+
+    transform: rotateY(180deg);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px;
+}
+
+.card-back p {
+    color: rgb(99, 90, 90);
+
+    font-size: 20px;
+
+    line-height: 2;
+
+    font-weight: 500;
+}
+
+.navigation {
+    margin-top: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.navigation button {
+    border: none;
+
+    padding: 12px 30px;
+
+    border-radius: 50px;
+
+    background: brown;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.navigation button:hover {
+    background: rgb(96, 73, 73);
+
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 30px 15px;
+    }
+
+    .main-content {
+        gap: 60px;
+    }
+
+
+    .counter-container {
+        padding: 40px 15px;
+    }
+
+    .counter-container h1 {
+        font-size: 28px;
+    }
+
+    .time-box {
+        width: 90px;
+
+        min-height: 90px;
+    }
+
+    .time-box span {
+        font-size: 25px;
+    }
+
+    .love-message {
+        font-size: 16px;
+    }
+
+
+    .memories-page h1 {
+        font-size: 28px;
+    }
+
+    .card-container {
+        width: 280px;
+        height: 370px;
+    }
+
+    .card-back p {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+}
+
+
+
+/* =========================
+   Container
+========================= */
+
+.quiz-container {
+    width: 550px;
+    max-width: 100%;
+
+    text-align: center;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.quiz-header {
+    margin-bottom: 25px;
+}
+
+.quiz-header h1 {
+    color: #d94b72;
+
+    font-size: 34px;
+
+    margin-bottom: 10px;
+}
+
+.quiz-header p {
+    color: #999;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   Question Card
+========================= */
+
+.question-card {
+    background: white;
+
+    padding: 40px 30px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 15px 40px rgba(180, 70, 100, 0.15);
+}
+
+.question-card h2 {
+    color: #c43f65;
+
+    font-size: 23px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   Answers
+========================= */
+
+.answers {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.answer {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: 2px solid #f3c1cf;
+
+    border-radius: 50px;
+
+    background: white;
+
+    color: #c43f65;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.answer:hover {
+    background: #fff0f4;
+
+    transform: translateY(-2px);
+
+    border-color: #d94b72;
+}
+
+
+/* =========================
+   Result Card
+========================= */
+
+.result-card {
+    display: none;
+
+    background: white;
+
+    padding: 40px 30px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 15px 40px rgba(180, 70, 100, 0.15);
+
+    animation: showCard 0.5s ease;
+}
+
+@keyframes showCard {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+.result-icon {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+}
+
+.result-card h2 {
+    color: #d94b72;
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+}
+
+.result-card p {
+    color: #777;
+
+    font-size: 16px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   Next Button
+========================= */
+
+#nextBtn {
+    border: none;
+
+    padding: 12px 35px;
+
+    border-radius: 50px;
+
+    background: #d94b72;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#nextBtn:hover {
+    background: #c43f65;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   Final Card
+========================= */
+
+.final-card {
+    display: none;
+
+    background: white;
+
+    padding: 45px 30px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 15px 40px rgba(180, 70, 100, 0.15);
+
+    animation: showCard 0.5s ease;
+}
+
+.final-heart {
+    font-size: 65px;
+
+    margin-bottom: 15px;
+}
+
+.final-card h2 {
+    color: #d94b72;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+#score {
+    color: #c43f65;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.final-message {
+    color: #888;
+
+    font-size: 16px;
+}
+
+
+@media (max-width: 500px) {
+
+    .quiz-header h1 {
+        font-size: 28px;
+    }
+
+    .question-card {
+        padding: 30px 20px;
+    }
+
+    .question-card h2 {
+        font-size: 20px;
+    }
+
+    .answer {
+        font-size: 14px;
+    }
+
+
+
+    @keyframes floating {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-8px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+
+
+    @keyframes musicBars {
+
+        0%,
+        100% {
+            height: 8px;
+        }
+
+        50% {
+            height: 35px;
+        }
+    }
+
+    .img-date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img-date img {
+        width: 150px;
+        height: 150px;
+        border-radius: 10%;
+
+    }
+
+    .video-box {
+        width: 80%;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 10px;
+        background: #fff;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    .video-box video {
+        width: 100%;
+        display: block;
+        border-radius: 18px;
+    }
+    /* =========================
+   Music Card
+========================= */
+
+.music-card {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+
+    padding: 18px 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+
+    transition: 0.4s ease;
+
+    direction: ltr;
+}
+
+
+/* Hover */
+
+.music-card:hover {
+    transform: translateY(-7px) scale(1.02);
+
+    box-shadow:
+        0 15px 40px rgba(255, 80, 130, 0.3);
+}
+
+
+/* =========================
+   Music Icon
+========================= */
+
+.music-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #ff4f81,
+        #ff8fab
+    );
+
+    border-radius: 50%;
+
+    font-size: 26px;
+
+    box-shadow:
+        0 5px 20px rgba(255, 79, 129, 0.35);
+
+    animation: musicPulse 1.8s infinite;
+}
+
+
+@keyframes musicPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   Music Info
+========================= */
+
+.music-info {
+    flex: 1;
+}
+
+
+.music-info h3 {
+    margin: 0;
+
+    color: brown;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   Equalizer
+========================= */
+
+.equalizer {
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+.equalizer span {
+    width: 4px;
+
+    height: 15px;
+
+    border-radius: 10px;
+
+    background: #ff5c8a;
+
+    animation: equalizer 0.8s infinite ease-in-out;
+}
+
+
+/* اختلاف الحركة */
+
+.equalizer span:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.equalizer span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.equalizer span:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.equalizer span:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.equalizer span:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+.equalizer span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.equalizer span:nth-child(7) {
+    animation-delay: 0.25s;
+}
+
+.equalizer span:nth-child(8) {
+    animation-delay: 0.35s;
+}
+
+
+@keyframes equalizer {
+
+    0% {
+        height: 8px;
+    }
+
+    50% {
+        height: 32px;
+    }
+
+    100% {
+        height: 8px;
+    }
+
+}
+
+
+/* =========================
+   Play Button
+========================= */
+
+.play-button {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: brown;
+
+    color: #ff4f81;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15);
+
+    transition: 0.3s ease;
+}
+
+
+.music-card:hover .play-button {
+    transform: scale(1.12);
+
+    background: #ff4f81;
+
+    color: brown;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+
+    .music-card {
+        width: 85%;
+        padding: 15px;
+
+        gap: 12px;
+    }
+
+    .music-icon {
+        width: 48px;
+        height: 48px;
+
+        font-size: 22px;
+    }
+
+    .music-info h3 {
+        font-size: 16px;
+    }
+
+    .equalizer {
+        gap: 3px;
+    }
+
+    .equalizer span {
+        width: 3px;
+    }
+
+    .play-button {
+        width: 42px;
+        height: 42px;
+        font-size: 15px;
+    }
+}
+}

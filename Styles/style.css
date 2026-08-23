@@ -1,0 +1,316 @@
+@media (max-width:500px) {
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        min-height: 100vh;
+
+        background: linear-gradient(135deg, #ffe6ee, #fff5f8);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+
+        font-family: Arial, sans-serif;
+
+        background: linear-gradient(135deg, #ffe6ee, #fff5f8);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+    }
+
+
+    .password-page {
+        width: 100%;
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+    }
+
+    .love-card {
+        width: 380px;
+
+        background: rgba(255, 255, 255, 0.8);
+
+        padding: 40px 30px;
+
+        border-radius: 25px;
+
+        text-align: center;
+
+        box-shadow: 0 15px 40px rgba(180, 70, 100, 0.15);
+
+        backdrop-filter: blur(10px);
+    }
+
+    .love-image img {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    @keyframes gentleShake {
+
+        0% {
+            transform: rotate(0deg);
+        }
+
+        20% {
+            transform: rotate(4deg);
+        }
+
+        40% {
+            transform: rotate(-4deg);
+        }
+
+        60% {
+            transform: rotate(3deg);
+        }
+
+        80% {
+            transform: rotate(-3deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    .love-image {
+        width: 180px;
+        height: 180px;
+
+        margin: 0 auto 25px;
+
+        border-radius: 50%;
+
+        overflow: hidden;
+
+        animation: gentleShake 1.8s ease-in-out infinite;
+    }
+
+    .love-card h1 {
+        color: #d94b72;
+
+        font-size: 32px;
+
+        margin-bottom: 10px;
+    }
+
+    .love-card p {
+        color: #888;
+
+        font-size: 14px;
+
+        margin-bottom: 25px;
+    }
+
+    .password-box {
+        display: flex;
+
+        width: 100%;
+
+        background: white;
+
+        border: 1px solid #f1b6c7;
+
+        border-radius: 50px;
+
+        overflow: hidden;
+
+        transition: 0.3s;
+    }
+
+    .password-box:focus-within {
+        border-color: #d94b72;
+
+        box-shadow: 0 0 0 4px rgba(217, 75, 114, 0.1);
+    }
+
+    .password-box input {
+        flex: 1;
+
+        border: none;
+        outline: none;
+
+        padding: 14px 18px;
+
+        font-size: 14px;
+
+        background: transparent;
+    }
+
+    .password-box input::placeholder {
+        color: #aaa;
+    }
+
+    .password-box button {
+        width: 52px;
+
+        border: none;
+
+        background: #d94b72;
+
+        color: white;
+
+        font-size: 18px;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+    }
+
+    .password-box button:hover {
+        background: #c63d63;
+
+        transform: scale(1.05);
+    }
+
+    #message {
+        display: block;
+
+        margin-top: 15px;
+
+        font-size: 13px;
+
+        color: #d94b72;
+    }
+
+    @media (max-width: 500px) {
+
+        .love-card {
+            width: 100%;
+
+            padding: 35px 20px;
+        }
+
+        .love-image {
+            width: 250px;
+            height: 250px;
+        }
+
+        .love-card h1 {
+            font-size: 28px;
+        }
+    }
+
+    .love-page {
+        width: 100%;
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .love-content {
+        width: 600px;
+
+        padding: 50px 40px;
+
+        background: rgba(255, 255, 255, 0.85);
+
+        border-radius: 30px;
+
+        text-align: center;
+
+        box-shadow: 0 15px 40px rgba(180, 70, 100, 0.15);
+
+        backdrop-filter: blur(10px);
+    }
+
+    .heart {
+        font-size: 15px;
+
+        margin-bottom: 25px;
+
+        animation: heartBeat 1.2s infinite;
+    }
+
+    @keyframes heartBeat {
+
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.15);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    #loveText {
+        color: #b83d62;
+
+        font-size: 22px;
+
+        line-height: 2;
+
+        min-height: 150px;
+
+        font-weight: 500;
+    }
+
+    #nextBtn {
+        display: none;
+
+        margin: 30px auto 0;
+
+        padding: 12px 35px;
+
+        border: none;
+
+        border-radius: 50px;
+
+        background: #d94b72;
+
+        color: white;
+
+        font-size: 16px;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+    }
+
+    #nextBtn:hover {
+        background: #c63d63;
+
+        transform: scale(1.05);
+    }
+
+
+    .love-content {
+        padding: 40px 20px;
+    }
+
+    #loveText {
+        font-size: 18px;
+        line-height: 2.2;
+    }
+
+    .heart {
+        font-size: 15px;
+    }
+    .heart h1{
+        font-size:15px;
+    }
+    
+}
